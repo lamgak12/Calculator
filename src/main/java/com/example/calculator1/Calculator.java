@@ -43,6 +43,14 @@ public class Calculator {
                 sc.nextLine();
                 int result = division(firstNumber,secondNumber);
                 System.out.println(firstNumber + " / " + secondNumber + "의 값은 : " + result + " 입니다.");
+            } else if (operator.equals("%")){
+                System.out.print("첫 번째 숫자를 입력해주세요: ");
+                int firstNumber = sc.nextInt();
+                System.out.print("두 번째 숫자를 입력해주세요: ");
+                int secondNumber = sc.nextInt();
+                sc.nextLine();
+                int result = modulo(firstNumber,secondNumber);
+                System.out.println(firstNumber + "%" + secondNumber + "의 값은 : " + result + " 입니다.");
             }
             while (true) {
                 System.out.print("계속 계산 하시겠습니까?(yes / exit): ");
@@ -70,5 +78,8 @@ public class Calculator {
     }
     public static int division(int firstNumber, int secondNumber){
         return firstNumber / secondNumber;
+    }
+    public static int modulo(int firstNumber, int secondNumber){
+        return firstNumber % secondNumber;
     }
 }
