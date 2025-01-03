@@ -17,35 +17,32 @@ public class Calculator {
                 System.out.print("두 번째 숫자를 입력해주세요: ");
                 int secondNumber = sc.nextInt();
                 sc.nextLine();
-                System.out.println(firstNumber + " + " + secondNumber + "의 값은 : " + (firstNumber + secondNumber) + " 입니다.");
+                int result = add(firstNumber,secondNumber);
+                System.out.println(firstNumber + " + " + secondNumber + "의 값은 : " + result + " 입니다.");
             } else if (operator.equals("-")){
                 System.out.print("첫 번째 숫자를 입력해주세요: ");
                 int firstNumber = sc.nextInt();
                 System.out.print("두 번째 숫자를 입력해주세요: ");
                 int secondNumber = sc.nextInt();
                 sc.nextLine();
-                System.out.println(firstNumber + " - " + secondNumber + "의 값은 : " + (firstNumber - secondNumber) + " 입니다.");
+                int result = subtract(firstNumber,secondNumber);
+                System.out.println(firstNumber + " - " + secondNumber + "의 값은 : " + result + " 입니다.");
             } else if (operator.equals("*")) {
                 System.out.print("첫 번째 숫자를 입력해주세요: ");
                 int firstNumber = sc.nextInt();
                 System.out.print("두 번째 숫자를 입력해주세요: ");
                 int secondNumber = sc.nextInt();
                 sc.nextLine();
-                System.out.println(firstNumber + " * " + secondNumber + "의 값은 : " + (firstNumber * secondNumber) + " 입니다.");
+                int result = multiply(firstNumber,secondNumber);
+                System.out.println(firstNumber + " * " + secondNumber + "의 값은 : " + result + " 입니다.");
             } else if (operator.equals("/")) {
                 System.out.print("첫 번째 숫자를 입력해주세요: ");
                 int firstNumber = sc.nextInt();
                 System.out.print("두 번째 숫자를 입력해주세요: ");
                 int secondNumber = sc.nextInt();
                 sc.nextLine();
-                System.out.println(firstNumber + " / " + secondNumber + "의 값은 : " + (firstNumber / secondNumber) + " 입니다.");
-            } else if (operator.equals("%")){
-                System.out.print("첫 번째 숫자를 입력해주세요: ");
-                int firstNumber = sc.nextInt();
-                System.out.print("두 번째 숫자를 입력해주세요: ");
-                int secondNumber = sc.nextInt();
-                sc.nextLine();
-                System.out.println(firstNumber + "%" + secondNumber + "의 값은 : " + (firstNumber % secondNumber) + " 입니다.");
+                int result = division(firstNumber,secondNumber);
+                System.out.println(firstNumber + " / " + secondNumber + "의 값은 : " + result + " 입니다.");
             }
             while (true) {
                 System.out.print("계속 계산 하시겠습니까?(yes / exit): ");
@@ -60,5 +57,18 @@ public class Calculator {
                 }
             }
         }
+    }
+
+    public static int add(int firstNumber, int secondNumber){
+        return firstNumber + secondNumber;
+    }
+    public static int subtract(int firstNumber, int secondNumber){
+        return firstNumber - secondNumber;
+    }
+    public static int multiply(int firstNumber, int secondNumber){
+        return firstNumber * secondNumber;
+    }
+    public static int division(int firstNumber, int secondNumber){
+        return firstNumber / secondNumber;
     }
 }
