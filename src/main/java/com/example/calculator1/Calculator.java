@@ -18,8 +18,34 @@ public class Calculator {
                 int secondNumber = sc.nextInt();
                 sc.nextLine();
                 System.out.println(firstNumber + "+" + secondNumber + "의 값은 : " + (firstNumber + secondNumber) + "입니다.");
-            } else {
-                System.out.println("현재는 덧셈만 가능합니다.");
+            } else if (operator.equals("-")){
+                System.out.print("첫 번째 숫자를 입력해주세요: ");
+                int firstNumber = sc.nextInt();
+                System.out.print("두 번째 숫자를 입력해주세요: ");
+                int secondNumber = sc.nextInt();
+                sc.nextLine();
+                System.out.println(firstNumber + "-" + secondNumber + "의 값은 : " + (firstNumber - secondNumber) + "입니다.");
+            } else if (operator.equals("*")) {
+                System.out.print("첫 번째 숫자를 입력해주세요: ");
+                int firstNumber = sc.nextInt();
+                System.out.print("두 번째 숫자를 입력해주세요: ");
+                int secondNumber = sc.nextInt();
+                sc.nextLine();
+                System.out.println(firstNumber + "*" + secondNumber + "의 값은 : " + (firstNumber * secondNumber) + "입니다.");
+            } else if (operator.equals("/")) {
+                System.out.print("첫 번째 숫자를 입력해주세요: ");
+                int firstNumber = sc.nextInt();
+                System.out.print("두 번째 숫자를 입력해주세요: ");
+                int secondNumber = sc.nextInt();
+                sc.nextLine();
+                System.out.println(firstNumber + "/" + secondNumber + "의 값은 : " + (firstNumber / secondNumber) + "입니다.");
+            } else if (operator.equals("%")){
+                System.out.print("첫 번째 숫자를 입력해주세요: ");
+                int firstNumber = sc.nextInt();
+                System.out.print("두 번째 숫자를 입력해주세요: ");
+                int secondNumber = sc.nextInt();
+                sc.nextLine();
+                System.out.println(firstNumber + "%" + secondNumber + "의 값은 : " + (firstNumber % secondNumber) + " 입니다.");
             }
             while (true) {
                 System.out.print("계속 계산 하시겠습니까?(yes / exit): ");
