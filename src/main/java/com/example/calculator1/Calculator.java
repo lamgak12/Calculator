@@ -4,53 +4,35 @@ package com.example.calculator1;
 import java.util.Scanner;
 
 public class Calculator {
+    static Scanner sc = new Scanner(System.in);
+
     public static void main(String[] args) {
+        int[] numbers = new int[2];
         System.out.println("=== 계산기 프로그램 ===");
-        Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.println("계산 할 기호를 입력해주세요.");
             System.out.println("기호 목록: +, -, *, /, %");
             String operator = sc.nextLine();
             if (operator.equals("+")) {
-                System.out.print("첫 번째 숫자를 입력해주세요: ");
-                int firstNumber = sc.nextInt();
-                System.out.print("두 번째 숫자를 입력해주세요: ");
-                int secondNumber = sc.nextInt();
-                sc.nextLine();
-                int result = add(firstNumber,secondNumber);
-                System.out.println(firstNumber + " + " + secondNumber + "의 값은 : " + result + " 입니다.");
+                inputNumbers(numbers);
+                int result = add(numbers[0],numbers[1]);
+                System.out.println(numbers[0] + " + " + numbers[1] + "의 값은 : " + result + " 입니다.");
             } else if (operator.equals("-")){
-                System.out.print("첫 번째 숫자를 입력해주세요: ");
-                int firstNumber = sc.nextInt();
-                System.out.print("두 번째 숫자를 입력해주세요: ");
-                int secondNumber = sc.nextInt();
-                sc.nextLine();
-                int result = subtract(firstNumber,secondNumber);
-                System.out.println(firstNumber + " - " + secondNumber + "의 값은 : " + result + " 입니다.");
+                inputNumbers(numbers);
+                int result = subtract(numbers[0],numbers[1]);
+                System.out.println(numbers[0] + " - " + numbers[1] + "의 값은 : " + result + " 입니다.");
             } else if (operator.equals("*")) {
-                System.out.print("첫 번째 숫자를 입력해주세요: ");
-                int firstNumber = sc.nextInt();
-                System.out.print("두 번째 숫자를 입력해주세요: ");
-                int secondNumber = sc.nextInt();
-                sc.nextLine();
-                int result = multiply(firstNumber,secondNumber);
-                System.out.println(firstNumber + " * " + secondNumber + "의 값은 : " + result + " 입니다.");
+                inputNumbers(numbers);
+                int result = multiply(numbers[0],numbers[1]);
+                System.out.println(numbers[0] + " * " + numbers[1] + "의 값은 : " + result + " 입니다.");
             } else if (operator.equals("/")) {
-                System.out.print("첫 번째 숫자를 입력해주세요: ");
-                int firstNumber = sc.nextInt();
-                System.out.print("두 번째 숫자를 입력해주세요: ");
-                int secondNumber = sc.nextInt();
-                sc.nextLine();
-                int result = division(firstNumber,secondNumber);
-                System.out.println(firstNumber + " / " + secondNumber + "의 값은 : " + result + " 입니다.");
+                inputNumbers(numbers);
+                int result = division(numbers[0],numbers[1]);
+                System.out.println(numbers[0] + " / " + numbers[1] + "의 값은 : " + result + " 입니다.");
             } else if (operator.equals("%")){
-                System.out.print("첫 번째 숫자를 입력해주세요: ");
-                int firstNumber = sc.nextInt();
-                System.out.print("두 번째 숫자를 입력해주세요: ");
-                int secondNumber = sc.nextInt();
-                sc.nextLine();
-                int result = modulo(firstNumber,secondNumber);
-                System.out.println(firstNumber + "%" + secondNumber + "의 값은 : " + result + " 입니다.");
+                inputNumbers(numbers);
+                int result = modulo(numbers[0], numbers[1]);
+                System.out.println(numbers[0] + "%" + numbers[1] + "의 값은 : " + result + " 입니다.");
             }
             while (true) {
                 System.out.print("계속 계산 하시겠습니까?(yes / exit): ");
@@ -65,6 +47,13 @@ public class Calculator {
                 }
             }
         }
+    }
+    public static void inputNumbers(int[] numbers){
+        System.out.print("첫 번째 숫자를 입력해주세요: ");
+        numbers[0] = sc.nextInt();
+        System.out.print("두 번째 숫자를 입력해주세요: ");
+        numbers[1] = sc.nextInt();
+        sc.nextLine();
     }
 
     public static int add(int firstNumber, int secondNumber){
