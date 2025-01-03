@@ -1,6 +1,7 @@
 package com.example.calculator1;
 
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Calculator {
@@ -27,12 +28,16 @@ public class Calculator {
                 printResult(operator, numbers, result);
             } else if (operator.equals("/")) {
                 inputNumbers(numbers);
-                int result = division(numbers[0],numbers[1]);
-                printResult(operator, numbers, result);
+                Integer result = division(numbers[0], numbers[1]);
+                if (result != null) {
+                    printResult(operator, numbers, result);
+                }
             } else if (operator.equals("%")){
                 inputNumbers(numbers);
-                int result = modulo(numbers[0], numbers[1]);
-                printResult(operator, numbers, result);
+                Integer result = modulo(numbers[0], numbers[1]);
+                if (result != null) {
+                    printResult(operator, numbers, result);
+                }
             }
             while (true) {
                 System.out.print("계속 계산 하시겠습니까?(yes / exit): ");
@@ -52,11 +57,19 @@ public class Calculator {
         System.out.println(numbers[0] + operator + numbers[1] + "의 값은 : " + result + " 입니다.");
     }
     public static void inputNumbers(int[] numbers){
-        System.out.print("첫 번째 숫자를 입력해주세요: ");
-        numbers[0] = sc.nextInt();
-        System.out.print("두 번째 숫자를 입력해주세요: ");
-        numbers[1] = sc.nextInt();
-        sc.nextLine();
+        while (true) {
+            try {
+                System.out.print("첫 번째 숫자를 입력해주세요: ");
+                numbers[0] = sc.nextInt();
+                System.out.print("두 번째 숫자를 입력해주세요: ");
+                numbers[1] = sc.nextInt();
+                sc.nextLine();
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("숫자를 입력해주세요.");
+                sc.nextLine();
+            }
+        }
     }
 
     public static int add(int firstNumber, int secondNumber){
@@ -68,10 +81,20 @@ public class Calculator {
     public static int multiply(int firstNumber, int secondNumber){
         return firstNumber * secondNumber;
     }
-    public static int division(int firstNumber, int secondNumber){
-        return firstNumber / secondNumber;
+    public static Integer division(int firstNumber, int secondNumber){
+        try {
+            return firstNumber / secondNumber;
+        }catch (ArithmeticException e){
+            System.out.println("0으로 나눌 수 업습니다.");
+            return null;
+        }
     }
-    public static int modulo(int firstNumber, int secondNumber){
-        return firstNumber % secondNumber;
+    public static Integer modulo(int firstNumber, int secondNumber){
+       try {
+           return firstNumber % secondNumber;
+       }catch (ArithmeticException e) {
+           System.out.println("정의되지 않은 결과입니다.");
+           return null;
+       }
     }
 }
