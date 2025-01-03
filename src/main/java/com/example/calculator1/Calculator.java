@@ -17,28 +17,28 @@ public class Calculator {
                 System.out.print("두 번째 숫자를 입력해주세요: ");
                 int secondNumber = sc.nextInt();
                 sc.nextLine();
-                System.out.println(firstNumber + "+" + secondNumber + "의 값은 : " + (firstNumber + secondNumber) + "입니다.");
+                System.out.println(firstNumber + " + " + secondNumber + "의 값은 : " + (firstNumber + secondNumber) + " 입니다.");
             } else if (operator.equals("-")){
                 System.out.print("첫 번째 숫자를 입력해주세요: ");
                 int firstNumber = sc.nextInt();
                 System.out.print("두 번째 숫자를 입력해주세요: ");
                 int secondNumber = sc.nextInt();
                 sc.nextLine();
-                System.out.println(firstNumber + "-" + secondNumber + "의 값은 : " + (firstNumber - secondNumber) + "입니다.");
+                System.out.println(firstNumber + " - " + secondNumber + "의 값은 : " + (firstNumber - secondNumber) + " 입니다.");
             } else if (operator.equals("*")) {
                 System.out.print("첫 번째 숫자를 입력해주세요: ");
                 int firstNumber = sc.nextInt();
                 System.out.print("두 번째 숫자를 입력해주세요: ");
                 int secondNumber = sc.nextInt();
                 sc.nextLine();
-                System.out.println(firstNumber + "*" + secondNumber + "의 값은 : " + (firstNumber * secondNumber) + "입니다.");
+                System.out.println(firstNumber + " * " + secondNumber + "의 값은 : " + (firstNumber * secondNumber) + " 입니다.");
             } else if (operator.equals("/")) {
                 System.out.print("첫 번째 숫자를 입력해주세요: ");
                 int firstNumber = sc.nextInt();
                 System.out.print("두 번째 숫자를 입력해주세요: ");
                 int secondNumber = sc.nextInt();
                 sc.nextLine();
-                System.out.println(firstNumber + "/" + secondNumber + "의 값은 : " + (firstNumber / secondNumber) + "입니다.");
+                System.out.println(firstNumber + " / " + secondNumber + "의 값은 : " + (firstNumber / secondNumber) + " 입니다.");
             } else if (operator.equals("%")){
                 System.out.print("첫 번째 숫자를 입력해주세요: ");
                 int firstNumber = sc.nextInt();
