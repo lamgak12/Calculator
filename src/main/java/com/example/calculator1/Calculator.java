@@ -15,24 +15,24 @@ public class Calculator {
             String operator = sc.nextLine();
             if (operator.equals("+")) {
                 inputNumbers(numbers);
-                int result = add(numbers[0],numbers[1]);
-                System.out.println(numbers[0] + " + " + numbers[1] + "의 값은 : " + result + " 입니다.");
+                int result = add(numbers[0], numbers[1]);
+                printResult(operator, numbers, result);
             } else if (operator.equals("-")){
                 inputNumbers(numbers);
                 int result = subtract(numbers[0],numbers[1]);
-                System.out.println(numbers[0] + " - " + numbers[1] + "의 값은 : " + result + " 입니다.");
+                printResult(operator, numbers, result);
             } else if (operator.equals("*")) {
                 inputNumbers(numbers);
                 int result = multiply(numbers[0],numbers[1]);
-                System.out.println(numbers[0] + " * " + numbers[1] + "의 값은 : " + result + " 입니다.");
+                printResult(operator, numbers, result);
             } else if (operator.equals("/")) {
                 inputNumbers(numbers);
                 int result = division(numbers[0],numbers[1]);
-                System.out.println(numbers[0] + " / " + numbers[1] + "의 값은 : " + result + " 입니다.");
+                printResult(operator, numbers, result);
             } else if (operator.equals("%")){
                 inputNumbers(numbers);
                 int result = modulo(numbers[0], numbers[1]);
-                System.out.println(numbers[0] + "%" + numbers[1] + "의 값은 : " + result + " 입니다.");
+                printResult(operator, numbers, result);
             }
             while (true) {
                 System.out.print("계속 계산 하시겠습니까?(yes / exit): ");
@@ -47,6 +47,9 @@ public class Calculator {
                 }
             }
         }
+    }
+    public static void printResult(String operator, int[] numbers, int result){
+        System.out.println(numbers[0] + operator + numbers[1] + "의 값은 : " + result + " 입니다.");
     }
     public static void inputNumbers(int[] numbers){
         System.out.print("첫 번째 숫자를 입력해주세요: ");
