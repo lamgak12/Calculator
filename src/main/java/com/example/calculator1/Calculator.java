@@ -1,6 +1,5 @@
 package com.example.calculator1;
 
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -14,31 +13,39 @@ public class Calculator {
             System.out.println("계산 할 기호를 입력해주세요.");
             System.out.println("기호 목록: +, -, *, /, %");
             String operator = sc.nextLine();
-            if (operator.equals("+")) {
-                inputNumbers(numbers);
-                int result = add(numbers[0], numbers[1]);
-                printResult(operator, numbers, result);
-            } else if (operator.equals("-")){
-                inputNumbers(numbers);
-                int result = subtract(numbers[0],numbers[1]);
-                printResult(operator, numbers, result);
-            } else if (operator.equals("*")) {
-                inputNumbers(numbers);
-                int result = multiply(numbers[0],numbers[1]);
-                printResult(operator, numbers, result);
-            } else if (operator.equals("/")) {
-                inputNumbers(numbers);
-                Integer result = division(numbers[0], numbers[1]);
-                if (result != null) {
+            Integer result = null;
+            switch (operator){
+                case "+":
+                    inputNumbers(numbers);
+                    result = add(numbers[0], numbers[1]);
                     printResult(operator, numbers, result);
-                }
-            } else if (operator.equals("%")){
-                inputNumbers(numbers);
-                Integer result = modulo(numbers[0], numbers[1]);
-                if (result != null) {
+                    break;
+                case "-":
+                    inputNumbers(numbers);
+                    result = subtract(numbers[0],numbers[1]);
                     printResult(operator, numbers, result);
-                }
+                    break;
+                case "*":
+                    inputNumbers(numbers);
+                    result = multiply(numbers[0],numbers[1]);
+                    printResult(operator, numbers, result);
+                    break;
+                case "/":
+                    inputNumbers(numbers);
+                    result = division(numbers[0],numbers[1]);
+                    printResult(operator, numbers, result);
+                    break;
+                case "%":
+                    inputNumbers(numbers);
+                    result = modulo(numbers[0],numbers[1]);
+                    printResult(operator, numbers, result);
+                    break;
+
+                default:
+                    System.out.println("올바른 기호를 입력해주세요.");
+                    break;
             }
+
             while (true) {
                 System.out.print("계속 계산 하시겠습니까?(yes / exit): ");
                 String userChoice = sc.nextLine().toLowerCase();
@@ -53,9 +60,12 @@ public class Calculator {
             }
         }
     }
-    public static void printResult(String operator, int[] numbers, int result){
-        System.out.println(numbers[0] + operator + numbers[1] + "의 값은 : " + result + " 입니다.");
+    public static void printResult(String operator, int[] numbers, Integer result){
+        if(result != null){
+            System.out.println(numbers[0] + operator + numbers[1] + "의 값은 : " + result + " 입니다.");
+        }
     }
+
     public static void inputNumbers(int[] numbers){
         while (true) {
             try {
@@ -84,8 +94,8 @@ public class Calculator {
     public static Integer division(int firstNumber, int secondNumber){
         try {
             return firstNumber / secondNumber;
-        }catch (ArithmeticException e){
-            System.out.println("0으로 나눌 수 업습니다.");
+        }catch (ArithmeticException e) {
+            System.out.println("0으로 나눌 수 없습니다.");
             return null;
         }
     }
