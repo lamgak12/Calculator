@@ -4,69 +4,79 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Calculator {
-    static Scanner sc = new Scanner(System.in);
+    private final Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
+        Calculator calculator = new Calculator();
+        calculator.run();
+    }
+    public void run() {
         int[] numbers = new int[2];
         System.out.println("=== 계산기 프로그램 ===");
+
         while (true) {
             System.out.println("계산 할 기호를 입력해주세요.");
             System.out.println("기호 목록: +, -, *, /, %");
             String operator = sc.nextLine();
             Integer result = null;
+
             switch (operator){
                 case "+":
                     inputNumbers(numbers);
                     result = add(numbers[0], numbers[1]);
-                    printResult(operator, numbers, result);
                     break;
                 case "-":
                     inputNumbers(numbers);
                     result = subtract(numbers[0],numbers[1]);
-                    printResult(operator, numbers, result);
                     break;
                 case "*":
                     inputNumbers(numbers);
                     result = multiply(numbers[0],numbers[1]);
-                    printResult(operator, numbers, result);
                     break;
                 case "/":
                     inputNumbers(numbers);
                     result = division(numbers[0],numbers[1]);
-                    printResult(operator, numbers, result);
                     break;
                 case "%":
                     inputNumbers(numbers);
                     result = modulo(numbers[0],numbers[1]);
-                    printResult(operator, numbers, result);
                     break;
 
                 default:
                     System.out.println("올바른 기호를 입력해주세요.");
-                    break;
+                    continue;
             }
 
-            while (true) {
-                System.out.print("계속 계산 하시겠습니까?(yes / exit): ");
-                String userChoice = sc.nextLine().toLowerCase();
-                if (userChoice.equals("yes")) {
-                    break;
-                } else if (userChoice.equals("exit")) {
-                    System.out.println("프로그램을 종료합니다.");
-                    return;
-                } else {
-                    System.out.println("올바른 입력이 아닙니다. yes 또는 exit를 입력해주세요.");
-                }
+            printResult(operator, numbers, result);
+
+            if (!isContinue()){
+                System.out.println("프로그램을 종료합니다.");
+                break;
             }
         }
     }
-    public static void printResult(String operator, int[] numbers, Integer result){
+
+    private boolean isContinue() {
+        while (true) {
+            System.out.print("계속 계산 하시겠습니까?(yes / exit): ");
+            String userChoice = sc.nextLine().toLowerCase();
+            if (userChoice.equals("yes")) {
+                return true;
+            } else if (userChoice.equals("exit")) {
+                return false;
+            } else {
+                System.out.println("올바른 입력이 아닙니다. yes 또는 exit를 입력해주세요.");
+            }
+        }
+    }
+
+    private void printResult(String operator, int[] numbers, Integer result){
         if(result != null){
             System.out.println(numbers[0] + operator + numbers[1] + "의 값은 : " + result + " 입니다.");
         }
     }
 
-    public static void inputNumbers(int[] numbers){
+    private void inputNumbers(int[] numbers){
         while (true) {
             try {
                 System.out.print("첫 번째 숫자를 입력해주세요: ");
@@ -82,16 +92,16 @@ public class Calculator {
         }
     }
 
-    public static int add(int firstNumber, int secondNumber){
+    private int add(int firstNumber, int secondNumber){
         return firstNumber + secondNumber;
     }
-    public static int subtract(int firstNumber, int secondNumber){
+    private int subtract(int firstNumber, int secondNumber){
         return firstNumber - secondNumber;
     }
-    public static int multiply(int firstNumber, int secondNumber){
+    private int multiply(int firstNumber, int secondNumber){
         return firstNumber * secondNumber;
     }
-    public static Integer division(int firstNumber, int secondNumber){
+    private Integer division(int firstNumber, int secondNumber){
         try {
             return firstNumber / secondNumber;
         }catch (ArithmeticException e) {
@@ -99,7 +109,7 @@ public class Calculator {
             return null;
         }
     }
-    public static Integer modulo(int firstNumber, int secondNumber){
+    private Integer modulo(int firstNumber, int secondNumber){
        try {
            return firstNumber % secondNumber;
        }catch (ArithmeticException e) {
