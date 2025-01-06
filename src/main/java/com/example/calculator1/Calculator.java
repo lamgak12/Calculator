@@ -10,7 +10,8 @@ public class Calculator {
         Calculator calculator = new Calculator();
         calculator.run();
     }
-    public void run() {
+
+    private void run() {
         int[] numbers = new int[2];
         System.out.println("=== 계산기 프로그램 ===");
 
