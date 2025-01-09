@@ -23,6 +23,7 @@ public class ResultStorage {
         }
         return flag;
     }
+
     public void getResult(){
         System.out.println("저장된 결과를 조회합니다.");
         if(results.isEmpty()){
@@ -39,18 +40,35 @@ public class ResultStorage {
     }
 
     public void deleteResult(){
-        System.out.println("리스트는 총 " + results.size() + "개 만큼 있습니다.");
-        System.out.print("삭제할 결과를 입력해주세요: ");
-        int index = sc.nextInt();
         if(results.isEmpty()){
             System.out.println("결과가 없습니다.");
+            return;
         }
-        if(index >= 1 && index <= results.size()){
-            results.remove(index - 1);
-            System.out.println("성공적으로 삭제되었습니다.");
-        }else {
-            System.out.println("유효하지 않은 번호입니다.");
-            sc.nextLine();
+        System.out.println("리스트는 총 " + results.size() + "개 만큼 있습니다.");
+
+        int index = -1;
+
+        while (true){
+            System.out.print("삭제할 결과의 번호를 입력해주세요: ");
+
+            if(!sc.hasNextInt()){
+                System.out.println("유효하지 않은 입력입니다. 숫자를 입력해주세요.");
+                sc.nextLine();
+                continue;
+            }
+
+            index = sc.nextInt();
+
+            if(index >= 1 && index <= results.size()){
+                break;
+            }else {
+                System.out.println("입력한 숫자 "+index+"은(는) 결과 리스트의 범위를 벗어납니다.");
+                System.out.println("다시 입력해주세요.");
+                sc.nextLine();
+            }
         }
+
+        results.remove(index - 1);
+        System.out.println("성공적으로 삭제되었습니다.");
     }
 }
