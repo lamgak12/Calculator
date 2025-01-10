@@ -1,6 +1,6 @@
-package com.example.calculator2;
+package com.example.calculator3;
 
-import static com.example.calculator2.Run.sc;
+import static com.example.calculator3.Run.sc;
 import java.util.ArrayList;
 
 
@@ -38,7 +38,6 @@ public class ResultStorage {
         results.add(firstNumber + " " + operator + " " + secondNumber + " = " + result);
         System.out.println("성공적으로 저장되었습니다.");
     }
-
     public void deleteResult(){
         if(results.isEmpty()){
             System.out.println("결과가 없습니다.");

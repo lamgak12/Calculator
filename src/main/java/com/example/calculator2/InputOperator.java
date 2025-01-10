@@ -1,6 +1,6 @@
-package com.example.calculator2;
+package com.example.calculator3;
 
-import static com.example.calculator2.Run.sc;
+import static com.example.calculator3.Run.sc;
 
 public class InputOperator {
     public String getOperator(){
