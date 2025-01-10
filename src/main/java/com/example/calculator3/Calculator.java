@@ -2,11 +2,21 @@ package com.example.calculator3;
 
 import com.example.calculator3.operation.*;
 
-public class Calculator {
-    public <T extends Number> T calculate(T firstNumber, T secondNumber, OperatorSymbol operator){
+import java.awt.print.PrinterException;
+
+public class Calculator<T extends Number> {
+    private final Class<T> type;
+
+    public Calculator(Class<T> type) {
+        this.type = type;
+    }
+
+    public T calculate(T firstNumber, T secondNumber, OperatorSymbol operator) {
         Operation<T> operation = getOperation(operator);
+
         return operation.operate(firstNumber,secondNumber);
     }
+
     private <T extends Number> Operation<T> getOperation(OperatorSymbol operator) {
         switch (operator) {
             case ADD:
