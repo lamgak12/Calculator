@@ -6,7 +6,7 @@ public class Run {
     public static Scanner sc = new Scanner(System.in);
     public void start() {
         InputHandler inputHandler = new InputHandler(); //제네릭에 어떤 타입을 사용할지 모르는 상황
-        Calculator calculator = new Calculator();
+        Calculator<Number> calculator = new Calculator<>(Number.class);
         ResultPrinter resultPrinter = new ResultPrinter();
         ResultStorage resultStorage = new ResultStorage();
         System.out.println("=== 계산기 프로그램 ===");
@@ -37,6 +37,10 @@ public class Run {
                     Number secondNumber = inputHandler.getNumber();
                     
                     Number result = calculator.calculate(firstNumber, secondNumber, operator);
+                    if (result instanceof Double && Double.isNaN(((Double) result))) {
+                        System.out.println("잘못된 계산입니다. 처음으로 돌아갑니다.");
+                        continue;
+                    }
 
                     resultPrinter.printResult(firstNumber, secondNumber, operator, result);
 //
