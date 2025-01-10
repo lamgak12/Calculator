@@ -1,7 +1,9 @@
 # 📟프로젝트 소개
 
 ---
-![img.png](img.png)
+
+![img](https://github.com/user-attachments/assets/c56b83f1-ec28-453c-bf6e-a43643dabe27)
+
 
 #### 프로젝트 이름 : 단계별 계산기 구현
 #### 프로젝트 목적 : 학습한 자바 문법의 활용 능력 강화
@@ -89,24 +91,28 @@
 ## 최종 구현 현황판
 
 --- 
-![img_1.png](img_1.png)
+![img_1](https://github.com/user-attachments/assets/f5241fab-4be4-4898-aee5-7ac91933cae3)
+
 
 ---
 
 ## 클래스 다이어그램 - Lv. 3
 
 ---
-![img_3.png](img_3.png)
+![img_3](https://github.com/user-attachments/assets/7a622d3e-9456-490e-9132-2113dfa48284)
+
 
 ---
 ## 구현 결과 - Lv. 3
 
 ---
+![img_4](https://github.com/user-attachments/assets/b58ab8c5-92e9-4e0c-951e-7c5cbf076013)
+![img_5](https://github.com/user-attachments/assets/d0678ccb-3010-498b-bfdc-bce2b0e1ca12)
+![img_6](https://github.com/user-attachments/assets/4915f598-701b-4674-8b98-df0e25b0f021)
+![img_7](https://github.com/user-attachments/assets/2fd89bc3-62e2-45d7-b9c6-00de9630ca4e)
 
-![img_4.png](img_4.png)
-![img_5.png](img_5.png)
-![img_6.png](img_6.png)
-![img_7.png](img_7.png)
+
+
 ---
 ## 좋았던 점
 배웠던 문법들을 상황에 맞게 활용하고자 고민하여 사용하며 코드를 작성할 수 있어서 좋았음
