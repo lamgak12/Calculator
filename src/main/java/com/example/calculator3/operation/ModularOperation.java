@@ -18,10 +18,10 @@ public class ModularOperation<T extends Number> implements Operation<T> {
         }
         if (firstNumber instanceof Double || secondNumber instanceof Double) {
             // 하나라도 Double이면 결과는 Double
-            return (T) Double.valueOf(firstNumber.doubleValue() / secondNumber.doubleValue());
+            return (T) Double.valueOf(firstNumber.doubleValue() % secondNumber.doubleValue());
         } else {
             // 둘 다 Integer이면 결과는 Integer
-            return (T) Integer.valueOf(firstNumber.intValue() / secondNumber.intValue());
+            return (T) Integer.valueOf(firstNumber.intValue() % secondNumber.intValue());
         }
     }
 }
